@@ -890,7 +890,7 @@
                                     <div class="pt-6 sm:pt-8 md:pt-12 relative">
 										
 										<div class="absolute top-0 right-0"><div class="rounded-full text-xs py-1 px-2 inline-flex items-center gap-1 border border-transparent text-amber-500 dark:text-amber-400 bg-amber-50 dark:bg-transparent dark:border-amber-400"><div class="w-[8px] h-[8px] rounded-full bg-amber-500 dark:bg-amber-600"></div><div class="font-medium">
-										Sale live</div></div></div>
+										Success</div></div></div>
 									<div class="wp-none" style="height: 10px"></div>
 									<div class="items-center justify-center  text-center"><h2 class="text-[26px] font-semibold text-neutral-800 dark:text-brand-text-dark capitalize leading-relaxed">
 									Yogs House Presale</h2></div>	
@@ -1065,7 +1065,7 @@
   <script>
                                                 (function() {
                                                     var start = new Date(transformTime("2022-02-16 23:00:00"));
-                                                    var end = new Date(transformTime("2024-11-04 23:30:00"));
+                                                    var end = new Date(transformTime("2024-11-03 23:30:00"));
 
                                                     function pad(num) {
                                                         return ("0" + parseInt(num)).substr(-2);
@@ -1469,15 +1469,17 @@ document.querySelector('.popup').addEventListener('click', function(event) {
                                                     </button>
                                                 </div>
                                             </div>
-                                            <div id="yushou_end" style="display: none">
-                                                <div class="has-text-centered">This pool has ended</div>
-                                                <br>
+                                            <div id="yushou_end" style="display: none"><div class="has-text-centered">
+                                                <div class="text-sm font-medium mb-2">This pool has ended</div></div>
+												
+                                                <br> 
+											<div class="has-text-centered">
                                                 <button id="btn-contribute-end" type="button" class="ant-btn ant-btn-primary">
-                                                    <span class="ml-2">Claim</span>
+                                                    <span class="ml-2">Claim (250,000,000,000 YOGS)</span>
                                                 </button>
-                                            </div>
-                                            <div id="yushou_fail" style="display: none">
-                                                <div class="has-text-centered">This pool has ended</div>
+                                            </div></div>
+                                            <div id="yushou_fail" style="display: none"><div class="has-text-centered">
+                                                <div class="text-sm font-medium mb-2">This pool has ended</div></div>
                                                 <br>
                                                 <button id="btn-contribute-fail" type="button" class="ant-btn ant-btn-primary">
                                                     <span class="ml-2">Withdrawal contribution</span>
