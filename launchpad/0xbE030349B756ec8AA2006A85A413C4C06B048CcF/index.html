@@ -1421,7 +1421,7 @@ function toggle4() {
                                                             if(!num){
                                                                 $('#yujizhi').text('');
                                                             }else{
-                                                                var bili = "500,000".split(',').join("");
+                                                                var bili = "20,000".split(',').join("");
                                                                 var suoxie = $('#bt_box_id').find('td').eq(3).text();
                                                                 var zuizhong = Number(num * bili).toFixed(3);
                                                                 var toThousands = function (num) {
@@ -1435,7 +1435,7 @@ function toggle4() {
                                                                     return result.join('');
                                                                 }
                                                                 zuizhong = toThousands(zuizhong.split('.')[0]) + '.' +zuizhong.split('.')[1];
-                                                                var txt = 'You will received: ' + zuizhong + ' ' + suoxie;
+                                                                var txt = 'You will receive: ' + zuizhong + ' ' + suoxie;
                                                                 $('#yujizhi').text(txt);
                                                             }
                                                         }
